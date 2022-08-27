@@ -11,7 +11,6 @@ import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding=ActivityMainBinding.inflate(layoutInflater)
@@ -27,7 +26,7 @@ class MainActivity : AppCompatActivity() {
                  var posts=response.body()
                  Toast.makeText(baseContext,"fetched ${posts!!.size} posts", Toast.LENGTH_LONG)
                      .show()
-                 var displayPost=PostRvAdapter(baseContext,posts)
+                 var displayPost=PostRvAdapter(posts)
                  binding.rvPosts.layoutManager=LinearLayoutManager(baseContext)
                  binding.rvPosts.adapter=displayPost
              }
